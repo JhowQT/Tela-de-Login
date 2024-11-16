@@ -1,0 +1,119 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    display:flex;
+    flex-direction: row;
+}
+#inDiv1{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width:55vw;
+}
+#imgSol{
+    text-align: center;
+    margin:auto;
+    width: 50vw;
+    height: 50vh;
+}
+#textDiv1{
+    color:white;
+    margin: auto;
+    font-size: 3vh;
+    font-family:"Orelega One Regular";
+}
+h1{
+    color:white;
+    margin-top: 17vh;
+    font-size: 6vh;
+    margin-left: 30vh;
+    font-family:"Orelega One Regular";
+}
+
+
+#inDiv2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E3C86F;
+    width:45vw;
+    height:100vh;
+}
+
+#inDiv3{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#FEE96F;
+    border-radius: 2vw;
+    width:45vw;
+    height:80vh;
+    margin-right:20vw;
+}
+h2{
+    display:flex;
+    flex-direction: column;
+    justify-content:end;
+    align-items:center;
+    font-family: "Nunito";
+    font-size:2vw;
+    color:black;
+    margin-top:1.5vh;
+    width:25vw;
+    height:6vh;
+}
+#inDiv4{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    width:30vw;
+    height:60vh;
+}
+.inLabel{
+    display:flex;
+    flex-direction:column;
+    border:solid 2px black;
+    border-radius:0.3vw;
+    background-color:black;
+    color:white;
+    height:8vh;
+}
+label{
+    display:flex;
+    align-items: center;
+    font-family:"Nunito";
+    font-weight:bold;
+    font-size:1vw;
+    height:4vh;
+}
+input{
+    border-bottom: solid 2px rgb(253, 253, 253);
+    height:3vh;
+    margin-bottom:1vh;
+    background-color:black;
+    color:white;
+}
+button{
+    background-color: #FCF4C7;
+    font-size: 3.4vb;
+    border-radius: 0.55vw;
+    width: 8vw;
+    height: 6vh;
+    font-weight: bolder;
+    color:black;
+    font-family: "Nunito";
+}
+p{
+    padding-top: 2vh;
+    font-size: 2.5vh;
+    font-family: "Nunito";
+}
+a{
+    font-weight: bolder;
+    color:black;
+    font-size: 2.5vh;
+}
