@@ -29,12 +29,38 @@
     <!-- CONTAINER DOS CARDS -->
     <section class="cards-container" id="listaTrabalhos">
         <!-- Os cards serão renderizados via JS depois -->
+
         <!-- Exemplo estático (apenas visual, vai apagar depois) -->
         <div class="card">
             <h3>Exemplo de Trabalho</h3>
             <p>Descrição breve do trabalho vindo do banco (CLOB).</p>
             <a class="btn-card" href="#">Ver detalhes</a>
         </div>
+    </section>
+
+
+    <!-- =================================================== -->
+    <!--           SEÇÃO DE COMENTÁRIOS ADICIONADA           -->
+    <!-- =================================================== -->
+    <section class="comentarios-container">
+
+        <h2>Comentários</h2>
+
+        <!-- Lista onde os comentários serão renderizados futuramente via JS -->
+        <div id="listaComentarios">
+            <!-- Exemplo estático -->
+            <div class="comentario">
+                <p><strong>Usuário Teste:</strong> Excelente trabalho!</p>
+            </div>
+        </div>
+
+        <!-- Caixa de comentário (somente será ativada com JWT depois) -->
+        <div class="comentario-box">
+            <h3>Deixe seu comentário</h3>
+            <textarea id="textoComentario" placeholder="Digite seu comentário..."></textarea>
+            <button id="btnComentar">Enviar Comentário</button>
+        </div>
+
     </section>
 
 </body>

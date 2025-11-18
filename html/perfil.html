@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Usuário - Start Trek</title>
+  <link rel="stylesheet" href="../css/perfil.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Perfil do Usuário</h1>
+
+    <!-- Formulário de perfil -->
+    <form id="formPerfil">
+
+      <!-- Foto do usuário -->
+      <div class="foto-perfil">
+        <img id="fotoPreview" src="../img/default-user.png" alt="Foto de perfil" />
+        <input type="file" id="fotoInput" accept="image/*" />
+      </div>
+
+      <!-- Campos de texto -->
+      <div class="input-group">
+        <label for="nomeUsuario">Nome:</label>
+        <input type="text" id="nomeUsuario" placeholder="Digite seu nome" />
+      </div>
+
+      <div class="input-group">
+        <label for="emailUsuario">E-mail:</label>
+        <input type="email" id="emailUsuario" placeholder="Digite seu e-mail" />
+      </div>
+
+      <div class="input-group">
+        <label for="senhaUsuario">Nova Senha:</label>
+        <input type="password" id="senhaUsuario" placeholder="Digite nova senha (opcional)" />
+      </div>
+
+      <button type="submit" class="btn-salvar">Salvar Alterações</button>
+    </form>
+
+    <button id="btnLogout" class="logout">Sair</button>
+    <p id="mensagem"></p>
+  </div>
+
+  <script src="../js/profile.js" defer></script>
+</body>
+</html>
