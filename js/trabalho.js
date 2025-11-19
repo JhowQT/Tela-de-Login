@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tituloEl = document.getElementById("tituloCategoria");
     const container = document.getElementById("listaTrabalhos");
 
-    const token = localStorage.getItem("token");  // ← Se existir, usuário está logado
+    const token = localStorage.getItem("token");
 
     if (!idCategoria) {
         container.innerHTML = "<p style='color:white;'>Categoria inválida.</p>";
@@ -15,9 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carregarTrabalhos(idCategoria);
 
-    // ============================================
-    //    BUSCAR TRABALHOS DA CATEGORIA
-    // ============================================
     async function carregarTrabalhos(idCategoria) {
         try {
             const resposta = await fetch(`http://localhost:8080/trabalhos/categoria/${idCategoria}`);
@@ -27,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const lista = await resposta.json();
 
             if (lista.length > 0) {
-                tituloEl.innerText = `Trabalhos da Categoria: ${lista[0].categoria.nomeCategoria}`;
+                tituloEl.innerText =
+                    `Trabalhos da Categoria: ${lista[0].categoria.nomeCategoria}`;
             }
 
             renderizarTrabalhos(lista);
@@ -38,32 +36,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ============================================
-    //    RENDERIZAR TODOS OS TRABALHOS
-    // ============================================
     async function renderizarTrabalhos(lista) {
         container.innerHTML = "";
 
         for (const tb of lista) {
 
-            // Primeiro busca os comentários
             const comentarios = await carregarComentarios(tb.idTrabalho);
 
             const card = document.createElement("div");
             card.classList.add("card");
 
-            // Lista dinâmica dos comentários
             let comentariosHTML = "";
 
             if (comentarios.length === 0) {
                 comentariosHTML = "<p style='opacity:.8'>Nenhum comentário ainda.</p>";
             } else {
                 comentariosHTML = comentarios
-                    .map(c => `<p><strong>${c.usuario.nomeUsuario}</strong>: ${c.cdComentario}</p>`)
+                    .map(c => `
+                        <p>
+                            <strong>${c.nomeUsuario}</strong>: 
+                            ${c.conteudoComentario}
+                        </p>
+                    `)
                     .join("");
             }
 
-            // Campo de comentário só aparece se estiver logado
             const campoComentario = token ? `
                 <textarea id="comentario-${tb.idTrabalho}" placeholder="Escreva um comentário..."></textarea>
                 <button class="btn-card" onclick="comentar(${tb.idTrabalho})">Enviar</button>
@@ -89,9 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ============================================
-    //    BUSCAR COMENTÁRIOS DO TRABALHO
-    // ============================================
     async function carregarComentarios(idTrabalho) {
         try {
             const resposta = await fetch(`http://localhost:8080/comentarios/trabalho/${idTrabalho}`);
@@ -102,9 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ============================================
-    //    ENVIAR COMENTÁRIO (NECESSITA JWT)
-    // ============================================
     window.comentar = async function (idTrabalho) {
 
         const campo = document.getElementById(`comentario-${idTrabalho}`);
@@ -116,13 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const resposta = await fetch(`http://localhost:8080/comentarios/${idTrabalho}`, {
+            const resposta = await fetch(`http://localhost:8080/comentarios`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`   // JWT AQUI
+                    "Authorization": `Bearer ${token}`
                 },
-                body: JSON.stringify({ cdComentario: texto })
+                body: JSON.stringify({
+                    conteudoComentario: texto,
+                    idTrabalho: idTrabalho
+                })
             });
 
             if (!resposta.ok) {
@@ -132,12 +126,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             campo.value = "";
 
-            // Atualiza lista de comentários
             const novos = await carregarComentarios(idTrabalho);
             const div = document.getElementById(`comentarios-${idTrabalho}`);
 
             div.innerHTML = novos
-                .map(c => `<p><strong>${c.usuario.nomeUsuario}</strong>: ${c.cdComentario}</p>`)
+                .map(c => `
+                    <p>
+                        <strong>${c.nomeUsuario}</strong>: 
+                        ${c.conteudoComentario}
+                    </p>
+                `)
                 .join("");
 
         } catch (erro) {
