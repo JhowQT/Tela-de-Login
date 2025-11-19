@@ -1,0 +1,12 @@
+CREATE OR REPLACE FUNCTION FN_VALIDAR_EMAIL(
+    p_email IN VARCHAR2
+) RETURN NUMBER AS
+    v_count NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO v_count
+    FROM T_ST_USUARIO
+    WHERE email = p_email;
+
+    RETURN v_count;
+END;
+/
