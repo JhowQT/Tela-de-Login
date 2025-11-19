@@ -28,38 +28,41 @@
 
     <!-- CONTAINER DOS CARDS -->
     <section class="cards-container" id="listaTrabalhos">
-        <!-- Os cards serão renderizados via JS depois -->
+        <!-- Os cards reais serão carregados via JS -->
 
-        <!-- Exemplo estático (apenas visual, vai apagar depois) -->
-        <div class="card">
-            <h3>Exemplo de Trabalho</h3>
-            <p>Descrição breve do trabalho vindo do banco (CLOB).</p>
+        <!-- Exemplo estático (apenas visual, para servir de modelo) -->
+        <article class="card" data-id-trabalho="1">
+            <h3 class="card-titulo">Exemplo de Trabalho</h3>
+            <p class="card-descricao">
+                Descrição breve do trabalho vindo do banco (CLOB).
+            </p>
+
             <a class="btn-card" href="#">Ver detalhes</a>
-        </div>
-    </section>
 
+            <!-- BLOCO DE COMENTÁRIOS DO TRABALHO -->
+            <div class="card-comentarios">
+                <h4>Comentários</h4>
 
-    <!-- =================================================== -->
-    <!--           SEÇÃO DE COMENTÁRIOS ADICIONADA           -->
-    <!-- =================================================== -->
-    <section class="comentarios-container">
+                <!-- Lista de comentários deste trabalho -->
+                <div class="comentarios-lista">
+                    <!-- Exemplo estático -->
+                    <div class="comentario">
+                        <p><strong>Usuário Teste:</strong> Excelente trabalho!</p>
+                    </div>
+                </div>
 
-        <h2>Comentários</h2>
-
-        <!-- Lista onde os comentários serão renderizados futuramente via JS -->
-        <div id="listaComentarios">
-            <!-- Exemplo estático -->
-            <div class="comentario">
-                <p><strong>Usuário Teste:</strong> Excelente trabalho!</p>
+                <!-- Formulário de comentário para ESTE trabalho -->
+                <div class="comentario-form">
+                    <textarea
+                        class="comentario-textarea"
+                        placeholder="Digite seu comentário..."
+                    ></textarea>
+                    <button class="btn-comentar" type="button">
+                        Enviar Comentário
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <!-- Caixa de comentário (somente será ativada com JWT depois) -->
-        <div class="comentario-box">
-            <h3>Deixe seu comentário</h3>
-            <textarea id="textoComentario" placeholder="Digite seu comentário..."></textarea>
-            <button id="btnComentar">Enviar Comentário</button>
-        </div>
+        </article>
 
     </section>
 
