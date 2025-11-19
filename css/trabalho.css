@@ -1,0 +1,154 @@
+/* ============================================
+   ESTILO GERAL
+============================================ */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d0f1a;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+/* ============================================
+   HEADER
+============================================ */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+}
+
+header p {
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   CARDS CONTAINER
+============================================ */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* ============================================
+   CARD DO TRABALHO
+============================================ */
+.card {
+    background: #13172b;
+    border-radius: 16px;
+    padding: 1.7rem;
+    width: 350px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.card p {
+    opacity: 0.9;
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+/* ============================================
+   TÍTULO DE COMENTÁRIOS
+============================================ */
+.card h4 {
+    margin-top: 1.3rem;
+    margin-bottom: 0.7rem;
+    font-size: 1.15rem;
+    border-left: 4px solid #657aff;
+    padding-left: 8px;
+}
+
+/* ============================================
+   ÁREA DE COMENTÁRIOS
+============================================ */
+#listaTrabalhos p strong {
+    color: #8ab4ff;
+}
+
+/* ============================================
+   TEXTAREA PARA COMENTAR
+============================================ */
+textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    background-color: #1c2035;
+    color: #fff;
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+
+textarea:focus {
+    box-shadow: 0px 0px 6px #8ab4ff;
+}
+
+/* ============================================
+   BOTÃO "ENVIAR"
+============================================ */
+.btn-card {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(45deg, #4f46e5, #6366f1);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s ease-in-out;
+    text-align: center;
+}
+
+.btn-card:hover {
+    background: linear-gradient(45deg, #6366f1, #4f46e5);
+    transform: scale(1.03);
+}
+
+/* ============================================
+   LINK PARA LOGIN (QUANDO NÃO LOGADO)
+============================================ */
+.card a {
+    color: #7ab0ff;
+    text-decoration: none;
+}
+
+.card a:hover {
+    color: #9fc3ff;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+============================================ */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
