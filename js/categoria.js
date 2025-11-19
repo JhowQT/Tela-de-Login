@@ -3,16 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const tituloEl = document.getElementById("tituloTrabalho");
     const container = document.getElementById("listaCategorias");
 
-    const params = new URLSearchParams(window.location.search);
-    const idTrabalho = params.get("idTrabalho") || params.get("id");
-
-    // Agora só existe listagem de TODAS as categorias
+    // Inicia a página carregando todas as categorias
     carregarTodasCategorias();
 
+    /**
+     * Busca todas as categorias na API (paginadas)
+     */
     async function carregarTodasCategorias() {
         try {
-            const url = "http://localhost:8080/categorias?page=0&size=20";
-            const resposta = await fetch(url);
+            const resposta = await fetch("http://localhost:8080/categorias?page=0&size=20");
 
             if (!resposta.ok) {
                 throw new Error("Erro ao buscar categorias.");
@@ -21,25 +20,29 @@ document.addEventListener("DOMContentLoaded", () => {
             const page = await resposta.json();
             const lista = page.content || [];
 
-            if (tituloEl) {
-                tituloEl.innerText = "Categorias";
-            }
+            // Define o título da página
+            tituloEl.innerText = "Categorias";
 
+            // Renderiza os cards
             renderizarCategorias(lista);
 
         } catch (erro) {
             console.error("Erro ao carregar categorias:", erro);
             container.innerHTML =
-                "<p style='color:white;font-size:1.05rem;'>Erro ao carregar categorias.</p>";
+                "<p style='color:white;font-size:1.1rem;'>Erro ao carregar categorias.</p>";
         }
     }
 
+    /**
+     * Renderiza os cards de categorias
+     * @param {Array} lista 
+     */
     function renderizarCategorias(lista) {
         container.innerHTML = "";
 
         if (!lista || lista.length === 0) {
             container.innerHTML =
-                "<p style='color:white;font-size:1.05rem;'>Nenhuma categoria encontrada.</p>";
+                "<p style='color:white;font-size:1.1rem;'>Nenhuma categoria encontrada.</p>";
             return;
         }
 
@@ -50,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.innerHTML = `
                 <h3>${cat.nomeCategoria}</h3>
                 <p>${cat.conteudoCategoria}</p>
-                
+
                 <a href="trabalho.html?idCategoria=${cat.idCategoria}" class="btn-card">
                     Ver Mais
                 </a>

@@ -15,12 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function carregarTrabalhos(idCategoria) {
         try {
-            const url = `http://localhost:8080/trabalhos/categoria/${idCategoria}`;
-            const resposta = await fetch(url);
+            const resposta = await fetch(`http://localhost:8080/trabalhos/categoria/${idCategoria}`);
 
-            if (!resposta.ok) {
-                throw new Error("Erro ao carregar trabalhos.");
-            }
+            if (!resposta.ok) throw new Error("Erro ao carregar trabalhos.");
 
             const lista = await resposta.json();
 
@@ -28,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 tituloEl.innerText =
                     `Trabalhos da Categoria: ${lista[0].categoria.nomeCategoria}`;
             } else {
-                tituloEl.innerText = "Nenhum trabalho encontrado para esta categoria.";
+                tituloEl.innerText =
+                    "Nenhum trabalho encontrado para esta categoria.";
             }
 
             renderizarTrabalhos(lista);
 
         } catch (erro) {
-            console.error("Erro ao carregar trabalhos:", erro);
             container.innerHTML =
                 "<p style='color:white;'>Erro ao carregar os trabalhos.</p>";
         }
@@ -42,12 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderizarTrabalhos(lista) {
         container.innerHTML = "";
-
-        if (!lista || lista.length === 0) {
-            container.innerHTML =
-                "<p style='color:white;'>Nenhum trabalho nesta categoria.</p>";
-            return;
-        }
 
         lista.forEach(tb => {
             const card = document.createElement("div");
@@ -57,9 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3>${tb.nomeTrabalho}</h3>
                 <p>${tb.conteudoTrabalho}</p>
 
-                <a href="#" class="btn-card">
-                    Ver Mais
-                </a>
+                <a href="#" class="btn-card">Ver Mais</a>
             `;
 
             container.appendChild(card);
