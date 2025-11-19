@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
+
+    <!-- NAVBAR (mesmo estilo do projeto) -->
+    <nav class="navbar">
+        <div class="logo">StartTrek</div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="categoria.html">Categorias</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <form class="box">
+        <form class="box" id="formCadastro">
             <h1>Cadastro</h1>
 
             <div class="input-group">
                 <label>Nome</label>
-                <input type="text" id="nome" placeholder="Digite seu nome">
+                <input type="text" id="nome" placeholder="Digite seu nome" required />
             </div>
 
             <div class="input-group">
                 <label>Email</label>
-                <input type="email" id="email" placeholder="Digite seu email">
+                <input type="email" id="email" placeholder="Digite seu email" required />
             </div>
 
             <div class="input-group">
                 <label>Senha</label>
-                <input type="password" id="senha" placeholder="Digite sua senha">
+                <input type="password" id="senha" placeholder="Digite sua senha" required />
             </div>
 
             <div class="input-group">
                 <label>Tipo de Usuário</label>
-                <select id="tipoUsuario">
+                <select id="tipoUsuario" required>
                     <option value="">Selecione...</option>
-                    <!-- JS vai preencher -->
+                    <!-- carregado por JS -->
                 </select>
             </div>
 
@@ -40,5 +52,7 @@
             <p class="link">Já tem conta? <a href="login.html">Entrar</a></p>
         </form>
     </div>
+
+    <script src="../js/cadastro.js"></script>
 </body>
 </html>
