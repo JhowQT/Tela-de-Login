@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index.html</title>
+    <title>StartTrek - Início</title>
+
+    <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
-    
+
+    <!-- NAVBAR GLOBAL -->
+    <nav class="navbar">
+        <div class="logo">StartTrek</div>
+
+        <ul class="nav-links">
+            <li><a href="./index.html" class="active">Home</a></li>
+            <li><a href="./html/login.html">Login</a></li>
+            <li><a href="./html/cadastro.html">Cadastrar</a></li>
+            <li><a href="./html/categoria.html">Categorias</a></li>
+            <li><a href="./html/perfil.html">Perfil</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Explore. Conecte. Aprenda.</h1>
+            <p>Bem-vindo ao StartTrek — seu portal para projetos, categorias, trabalhos e interação entre usuários.</p>
+
+            <a class="btn-hero" href="./html/login.html">Começar Agora</a>
+        </div>
+    </header>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <h2>O que você encontra no StartTrek</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="./img/icon-user.png" alt="Perfil">
+                <h3>Gerencie Seu Perfil</h3>
+                <p>Atualize sua foto, nome, email e senha de forma simples e rápida.</p>
+                <a href="./html/perfil.html" class="btn-card">Acessar</a>
+            </div>
+
+            <div class="card">
+                <img src="./img/icon-folder.png" alt="Categorias">
+                <h3>Categorias</h3>
+                <p>Veja todas as categorias cadastradas e explore conteúdos.</p>
+                <a href="./html/categoria.html" class="btn-card">Explorar</a>
+            </div>
+
+            <div class="card">
+                <img src="./img/icon-work.png" alt="Trabalhos">
+                <h3>Trabalhos</h3>
+                <p>Acesse trabalhos completos, leia conteúdos e comente.</p>
+                <a href="./html/categoria.html" class="btn-card">Ver Trabalhos</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <p>StartTrek © 2025 — Todos os direitos reservados.</p>
+    </footer>
+
 </body>
 </html>

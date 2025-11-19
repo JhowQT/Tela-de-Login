@@ -5,25 +5,69 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Fundo geral */
 body {
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+    color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background: #12172b;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #63b3ff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #e4e4e4;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #9d7dff;
+}
+
+/* Wrapper central das páginas */
+.page-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+    min-height: calc(100vh - 80px);
+    padding: 20px;
 }
 
+/* Container do formulário */
 .container {
     width: 100%;
     max-width: 400px;
     padding: 20px;
 }
 
+/* Card do formulário */
 .box {
     background: white;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    color: #333;
 }
 
 .box h1 {

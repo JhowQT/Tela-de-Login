@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #1c1b29;
+    background: #0b0f19;
     font-family: Arial, sans-serif;
     color: white;
 }
@@ -10,7 +10,7 @@ body {
 /* NAVBAR */
 .navbar {
     width: 100%;
-    background: #2b2a3d;
+    background: #12172b;
     padding: 15px 40px;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #9d7dff;
+    color: #63b3ff;
 }
 
 .nav-links {
@@ -44,7 +44,7 @@ body {
 /* Header */
 header {
     text-align: center;
-    margin: 30px auto;
+    margin: 30px auto 10px auto;
 }
 
 header h1 {
@@ -62,15 +62,16 @@ header p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
-    padding: 20px 40px;
+    padding: 20px 40px 40px 40px;
 }
 
 .card {
-    background: #2b2a3d;
+    background: #161b33;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: transform .2s;
+    border: 1px solid #232b4a;
 }
 
 .card:hover {
@@ -79,9 +80,10 @@ header p {
 
 .card h3 {
     font-size: 1.4rem;
-    color: #9d7dff;
+    color: #7aa7ff;
 }
 
+/* Comentários */
 textarea {
     width: 100%;
     background: #1f1e2b;
