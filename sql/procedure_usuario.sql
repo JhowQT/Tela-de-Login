@@ -8,7 +8,6 @@ CREATE OR REPLACE PROCEDURE PR_INSERIR_USUARIO(
     v_email_exist NUMBER;
     v_tipo_exist NUMBER;
     v_esp32_exist NUMBER;
-    v_ativo NUMBER;
 BEGIN
     -- Verifica se email já existe
     SELECT COUNT(*) INTO v_email_exist
@@ -28,7 +27,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20002, 'Tipo de usuário inexistente.');
     END IF;
 
-    -- Verifica se esp32 existe
+    -- Verifica se ESP32 existe
     SELECT COUNT(*) INTO v_esp32_exist
     FROM T_ST_ESP32
     WHERE id_esp32 = p_id_esp32;
@@ -37,10 +36,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20003, 'ESP32 inexistente.');
     END IF;
 
-    -- Usa a função FN_USUARIO_ATIVO de forma segura
-    -- (ID 0 nunca existirá, mas demonstra uso da função)
-    v_ativo := FN_USUARIO_ATIVO(0);
-
+    -- Insere o usuário (sempre como ativo)
     INSERT INTO T_ST_USUARIO(
         nm_usuario, email, senha, at_usuario, id_tipo_usuario, id_esp32
     ) VALUES(

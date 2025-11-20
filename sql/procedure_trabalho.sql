@@ -6,7 +6,7 @@ CREATE OR REPLACE PROCEDURE PR_INSERIR_TRABALHO(
     v_categoria_exist NUMBER;
     v_trabalho_exist NUMBER;
 BEGIN
-    -- Valida categoria
+    -- Verifica se a categoria existe
     SELECT COUNT(*) INTO v_categoria_exist
     FROM T_ST_CATEGORIA
     WHERE id_categoria = p_id_categoria;
@@ -15,7 +15,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20010, 'Categoria inexistente.');
     END IF;
 
-    -- Valida duplicidade por nome
+    -- Verifica se já existe um trabalho com o mesmo nome
     SELECT COUNT(*) INTO v_trabalho_exist
     FROM T_ST_TRABALHO
     WHERE nm_trabalho = p_nome;
@@ -24,10 +24,10 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20011, 'Já existe um trabalho com esse nome.');
     END IF;
 
-    -- Aqui usamos a função FN_VALIDAR_TRABALHO
-    -- (passamos um ID inexistente apenas para demonstrar uso)
-    v_trabalho_exist := FN_VALIDAR_TRABALHO(0);
+   
+    v_trabalho_exist := FN_VALIDAR_TRABALHO(-1);  -- ID inexistente proposital
 
+    -- Insere o novo trabalho
     INSERT INTO T_ST_TRABALHO(nm_trabalho, cd_trabalho, id_categoria)
     VALUES (p_nome, p_conteudo, p_id_categoria);
 
